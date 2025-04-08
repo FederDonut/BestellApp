@@ -1,7 +1,6 @@
 function renderLayOut(){
     let layoutRef =document.getElementById('content');
-    //layoutRef.innerHTML="";
-    layoutRef.innerHTML = htmlLayOut();
+    layoutRef.innerHTML = htmlLayOut(myResturant);
     renderContent();
 }
 
@@ -10,6 +9,6 @@ function renderContent(){
     contentRef.innerHTML="";
     for(i=0; i<myDishes.length;i++){
         const dishes = myDishes[i];
-        contentRef.innerHTML += htmlOutput(i,dishes);
+        contentRef.innerHTML += htmlDishesOutput(i,dishes);
     }
 };
