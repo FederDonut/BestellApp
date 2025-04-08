@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+.header{
+    height: 80px;
+    width: 100%;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+}
+.logo{
+    height: 70px;
+    width: 200px;
+    background-image: url(./icons/Bestell\ App-\ Logo.svg);
+    background-size: contain;
+    background-repeat: none;
+    background-position: center;
+}
+
+
+.resturant-content{
+    width: 75%;
+}
+.resturantlogo{
+    height: 450px;
+    width: 100%;
+    background-image: url(./img/ai-generated-9010874_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 18px;
+}
+.content{
+    min-height: 800px;
+    width: 100%;
+    padding-left: 18px;
+    display: flex;
+    
+}
+.content-dishes{
+    min-height: 800px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.dishes{
+    height: 150px;
+    width: 100%;
+    border-radius: 16px;
+    background-color: rgb(243, 231, 222);
+    display: flex;
+    justify-content: space-between;  
+}
+.dishes:hover{
+    cursor: pointer;
+    background-color: rgb(211, 164, 127);
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.flex-dishes{
+    display: flex;
+    justify-content: center;
+}
+.dishes-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+.img-container{
+    display: flex;
+
+}
+.dishes-img{
+    height: 150px;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.Shoppingcard{
+    min-height: 800px;
+    width: 25%;
+    background-color: black;
+}
+footer{
+    height: 100px;
+    width: 100%;
+}
