@@ -12,10 +12,11 @@
     <script src="./script.js"></script>
 </head>
 <body onload="renderLayOut()">
+    <div class="overlay d_none" id="overlay" onclick="toggleOverlay()"></div>
     <section class="header">
         <div class="logo"></div>
         <div class="dropdown">
-            <button class="drop-down-button" id="drop-down-btn"></button>
+            <button class="drop-down-button" id="drop-down-btn" onclick="toggleOverlay()"></button>
         </div>
     </section>
     <div class="separator"></div>

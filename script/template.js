@@ -14,10 +14,7 @@ function htmlLayOut(myResturant){
                 <div class="Shoppingcard">
                     <div class="shoppingcard-container">
                     <h1>Warenkorb</h1>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
+                        
                         <div class="emptyShoppingcard">  
                             <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
                             <h1>Fülle deinen Warenkorb</h1>
@@ -32,7 +29,7 @@ function htmlLayOut(myResturant){
 function htmlDishesOutput(i,dishes){
 return`     
         
-            <div class="dishes" id="menu${i}">
+            <div class="dishes" id="menu${i}" onclick="toggleOverlay(${i})">
                 <div class="dishes-info">
                     <h3 class="Titel">${dishes.name}</h3>
                     <p class="description">${dishes.description}</p>
@@ -46,8 +43,51 @@ return`
             
 `
 };
-function htmlShoppingcardOutput(){
+function htmlOverlay(i){
+    return` 
+            <div class="overlay-content-flex">
+                <div class="overlay-content-render" onclick="preventBubbling(event)">
+                    <div class="conten-inner-position">
+                            <div class="content-header">
+                                <h1>${myDishes[i].name}</h1>
+                            </div>
+                        <div class="separator"></div>
+                        <div class="scroll-content">
+                            <h2>${myDishes[i].price}</h2>
+                            <h2>Deine extra Zutaten</h2>
+                            <div class="ingredients" id="ingredients"></div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="content-footer">
+                            <div class="content-counter">
+                                <button></button>
+                                <p></p>
+                                <button></button>
+                            </div>
+                            <div class="content-finalbtn">
+                                <button></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+function htmlIngredientsOutput(index,itemsArray,extraIngredients){
     return`
-            d
+            <div class="test">
+
+                <div class="category">
+                    <p>${itemsArray.category}</p>
+                    <div class="ingredientsItems">
+                        <p>${renderIngredientsItems(itemsArray)}</p>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            
     `
 }
