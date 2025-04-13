@@ -81,43 +81,35 @@ function addExtraIngredients(index){
 function overlayPriceing(){
     let counter = document.getElementById('counter');
     let dishesPriceRef = document.getElementById('overlayPriceInfo');
-    
+    let dishesBtn = document.getElementById('addDishesBtn');
+    let menu = dishesPriceRef.innerText
     let Counter=0;
     let amountIng = 0;
     let actualDishesPrice;
     let dishesPrice
-    
-    //console.log(counter.innerText);
     for(s=0;s<choosenIngredients.length;s++){
-        //console.log(choosenIngredients[s]);
         amountIng += choosenIngredients[s]; // Summe der ausgewälten zutaten
-        Counter = amountIng * Number(counter.innerText);
-        console.log(Counter);//Summe ausgewälter Zutaten + menge der Gerichte
-        console.log(Number(dishesPriceRef.innerText));    
-        //actualDishesPrice=Counter*(Number(dishesPriceRef.innerText));
-        //console.log(actualDishesPrice);
+        Counter = amountIng * Number(counter.innerText);    
     }
-    
+    dishesPrice=menu*Number(counter.innerText);
+    actualDishesPrice = dishesPrice+Counter;
+    dishesBtn.innerText = actualDishesPrice;
 }
 
 function dishesCounterPlus(i){
     const addition = document.getElementById('counter');
     let lockBtn = document.getElementById('minusBtn');
-    //let dishesBtn = document.getElementById('addDishesBtn');
     dishesCounter ++;
     addition.innerText = dishesCounter;
     if(dishesCounter>1){
         lockBtn.disabled=false;
-    }
-    //actualPrice=myDishes[i].price*dishesCounter;
-    //dishesBtn.innerText = actualPrice;        
+    }      
     overlayPriceing();
 }
 
 function dishesCounterMinus(i){
     const subtraction = document.getElementById('counter');
     let lockBtn = document.getElementById('minusBtn');
-    //let dishesBtn = document.getElementById('addDishesBtn');
     let actualPrice;
     // Hat noch Schwachstellen 
     if(dishesCounter<=2){
@@ -125,20 +117,8 @@ function dishesCounterMinus(i){
     }
     dishesCounter --;
     subtraction.innerText = dishesCounter;
-    //actualPrice=myDishes[i].price*dishesCounter;
-    //dishesBtn.innerText = actualPrice;
     overlayPriceing();
 }
 
 
 
-//function showSelectedIngredients(){
-//    const selectedIngredients = [];
-//    let checkbox = document.getElementById('checkbox'+index);
-//    myIngredients.forEach((ingredient,index)=> {
-//        if(checkbox && checkbox.checked){
-//            selectedIngredients.push(ingredient.price);
-//        }
-//    });
-//    console.log('Ausgewählte Zutaten sind',selectedIngredients)
-//}
