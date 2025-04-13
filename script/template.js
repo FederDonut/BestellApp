@@ -53,7 +53,7 @@ function htmlOverlay(i){
                             </div>
                         <div class="separator"></div>
                         <div class="scroll-content">
-                            <h2>${myDishes[i].price}</h2>
+                            <h2 id="overlayPriceInfo">${myDishes[i].price}</h2>
                             <h2>Deine extra Zutaten</h2>
                             <div class="ingredients" id="ingredients"></div>
                         </div>
@@ -65,34 +65,35 @@ function htmlOverlay(i){
     `
 }
 
-function htmlIngredientsOutput(itemsArray){
+function htmlIngredientsOutput(itemsArray,index){
     return`
             <div class="extra-ingredients">
                 <label class="checkbox-container">
-                    <input type="checkbox" >
-                    <span class="checkmark"></span>
+                    <input type="checkbox" id="checkbox${index}" onclick="addExtraIngredients(${index})" >
+                    <span class="checkmark" ></span>
                 </label>
                 <div class="category">
                     <p>${itemsArray.name}</p>
                 </div>
-                <div class="ingredients-price"">
+                <div class="ingredients-price" id="ingredients-price${index}">
                         <p>${itemsArray.price}</p>
                 </div>  
             </div>
+            <div class="price-with-extras" id="price-with-extras"><p></p></div>
             
     `
 }
 function htmlOverlayContentFooter(i,dishesCounter){
     return `
             <div class="content-counter">
-                <button id="minusBtn"class="counterbtn" onclick="dishesCounterMinus(${dishesCounter,i})">-</button>
+                <button id="minusBtn"class="counterbtn" onclick="dishesCounterMinus(${dishesCounter})">-</button>
                 <div class="counter" id="counter">
                     <span><p>${dishesCounter}</p></span>
                 </div>
-                <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter,i})">+</button> 
+                <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter})">+</button> 
             </div>    
             <div class="content-finalbtn">
-                <button id="addDishesBtn">${myDishes[i].price}</button>
+                <button class="add-dishes-btn" id="addDishesBtn">${myDishes[i].price}</button>
             </div>
     `
 }

@@ -58,27 +58,28 @@ const myResturant = {name:"SchlemmerPalast",
 };
 
 const myIngredients = [
-  { name: "Mozzarella", price: 1.50 },
-  { name: "Salami", price: 1.80 },
-  { name: "Champignons", price: 1.00 },
-  { name: "Paprika", price: 1.10 },
-  { name: "Oliven", price: 1.00 },
-  { name: "Ananas", price: 1.20 },
-  { name: "Rucola (nach Backen)", price: 1.30 },
-  { name: "Knoblauchöl", price: 0.80 },
-  { name: "Chiliöl", price: 0.90 },
-  { name: "Ei", price: 1.20 },
-  { name: "Schinkenwürfel", price: 1.60 },
-  { name: "Gorgonzola", price: 2.00 },
-  { name: "Thunfisch", price: 1.70 },
-  { name: "Mais", price: 0.70 },
-  { name: "Artischockenherzen", price: 1.40 },
-  { name: "Basilikum (nach Backen)", price: 0.60 },
-  { name: "Jalapeños", price: 0.90 },
-  { name: "Cherrytomaten", price: 1.10 },
-  { name: "Pesto (nach Backen)", price: 1.50 },
-  { name: "Veganes Hackfleisch", price: 2.20 }
-];
+    { name: "Mozzarella", price: 1.50, selected: false },
+    { name: "Salami", price: 1.80, selected: false },
+    { name: "Champignons", price: 1.00, selected: false },
+    { name: "Paprika", price: 1.10, selected: false },
+    { name: "Oliven", price: 1.00, selected: false },
+    { name: "Ananas", price: 1.20, selected: false },
+    { name: "Rucola (nach Backen)", price: 1.30, selected: false },
+    { name: "Knoblauchöl", price: 0.80, selected: false },
+    { name: "Chiliöl", price: 0.90, selected: false },
+    { name: "Ei", price: 1.20, selected: false },
+    { name: "Schinkenwürfel", price: 1.60, selected: false },
+    { name: "Gorgonzola", price: 2.00, selected: false },
+    { name: "Thunfisch", price: 1.70, selected: false },
+    { name: "Mais", price: 0.70, selected: false },
+    { name: "Artischockenherzen", price: 1.40, selected: false },
+    { name: "Basilikum (nach Backen)", price: 0.60, selected: false },
+    { name: "Jalapeños", price: 0.90, selected: false },
+    { name: "Cherrytomaten", price: 1.10, selected: false },
+    { name: "Pesto (nach Backen)", price: 1.50, selected: false },
+    { name: "Veganes Hackfleisch", price: 2.20, selected: false }
+  ];
+const choosenIngredients =[];
 
 let myShoppingCard =[
 ];

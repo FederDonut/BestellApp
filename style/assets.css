@@ -135,7 +135,7 @@
 .counter{
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #d8cec7;
+  background-color: #d8cec765;
 }
 .counterbtn{
   width: 35px;
@@ -149,4 +149,15 @@
 .counterbtn:hover{
   background-color: #b0bbb9;
 }
+.add-dishes-btn{
+  height: 35px;
+  width: 120px;
+  border-radius: 20px;
+  border-color: #d8cec7;
+  border-style: none;
+  cursor: pointer;
 
+}
+.add-dishes-btn:hover{
+  background-color: #b0bbb9;
+}
