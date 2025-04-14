@@ -53,7 +53,7 @@ function htmlOverlay(i){
                             </div>
                         <div class="separator"></div>
                         <div class="scroll-content">
-                            <h2 id="overlayPriceInfo">${myDishes[i].price}</h2>
+                            <h2 id="overlayPriceInfo"                                                                                                                 ">${myDishes[i].price}</h2>
                             <h2>Deine extra Zutaten</h2>
                             <div class="ingredients" id="ingredients"></div>
                         </div>
