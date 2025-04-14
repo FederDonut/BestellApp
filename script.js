@@ -94,6 +94,7 @@ function overlayPriceing(){
     dishesPrice=menu*Number(counter.innerText);
     actualDishesPrice = dishesPrice+Counter;
     dishesBtn.innerText = actualDishesPrice;
+    //return actualDishesPrice;
 }
 
 function dishesCounterPlus(i){
@@ -120,5 +121,11 @@ function dishesCounterMinus(i){
     overlayPriceing();
 }
 
+function dishesToShoppingcard(i){
+    let orderBtn = document.getElementById('addDishesBtn');
+    let order = Number(orderBtn.innerText);
+    console.log(order);
+    toggleOverlay(i);
+}
 
 

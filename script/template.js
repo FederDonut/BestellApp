@@ -11,18 +11,18 @@ function htmlLayOut(myResturant){
                     <div class="content-dishes" id="content-dishes"></div>
                 </div>
             </div>
-                <div class="Shoppingcard">
-                    <div class="shoppingcard-container">
-                    <h1>Warenkorb</h1>
-                        
-                        <div class="emptyShoppingcard">  
-                            <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
-                            <h1>Fülle deinen Warenkorb</h1>
-                            <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
-                        </div>
+           
+            <div class="Shoppingcard">
+                <div class="vertical-seperator"></div>
+                <div class="shoppingcard-container">
+                <h1>Warenkorb</h1>
+                    <div class="emptyShoppingcard">  
+                        <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
+                        <h1>Fülle deinen Warenkorb</h1>
+                        <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
                     </div>
-
                 </div>
+            </div>
     `
 }
 
@@ -53,7 +53,7 @@ function htmlOverlay(i){
                             </div>
                         <div class="separator"></div>
                         <div class="scroll-content">
-                            <h2 id="overlayPriceInfo"                                                                                                                 ">${myDishes[i].price}</h2>
+                            <h2 id="overlayPriceInfo"                                                                                                                ">${myDishes[i].price}</h2>
                             <h2>Deine extra Zutaten</h2>
                             <div class="ingredients" id="ingredients"></div>
                         </div>
@@ -93,7 +93,7 @@ function htmlOverlayContentFooter(i,dishesCounter){
                 <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter})">+</button> 
             </div>    
             <div class="content-finalbtn">
-                <button class="add-dishes-btn" id="addDishesBtn">${myDishes[i].price}</button>
+                <button class="add-dishes-btn" id="addDishesBtn" onclick="dishesToShoppingcard()">${myDishes[i].price}</button>
             </div>
     `
 }
