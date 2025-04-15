@@ -11,16 +11,18 @@ function htmlLayOut(myResturant){
                     <div class="content-dishes" id="content-dishes"></div>
                 </div>
             </div>
-           
-            <div class="Shoppingcard">
-                <div class="vertical-seperator"></div>
+           <div class="vertical-seperator"></div>
+            <div class="Shoppingcard"> 
                 <div class="shoppingcard-container">
-                <h1>Warenkorb</h1>
-                    <div class="emptyShoppingcard">  
-                        <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
-                        <h1>Fülle deinen Warenkorb</h1>
-                        <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
+                    <h1>Warenkorb</h1>
+                    <div class="ShoppingcardStatus" id="emptyShoppingcard">
+                        <div class="emptyShoppingcard">  
+                            <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
+                            <h1>Fülle deinen Warenkorb</h1>
+                            <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
+                        </div>
                     </div>
+                    <div class="fullShoppingcard" id="fullShoppingcard"></div>
                 </div>
             </div>
     `
@@ -42,18 +44,18 @@ return`
         
             
 `
-};
+}
 function htmlOverlay(i){
     return` 
             <div class="overlay-content-flex">
                 <div class="overlay-content-render" onclick="preventBubbling(event)">
                     <div class="conten-inner-position">
                             <div class="content-header">
-                                <h1>${myDishes[i].name}</h1>
+                                <h1 id="dishes-name">${myDishes[i].name}</h1>
                             </div>
                         <div class="separator"></div>
                         <div class="scroll-content">
-                            <h2 id="overlayPriceInfo"                                                                                                                ">${myDishes[i].price}</h2>
+                            <h2 id="overlayPriceInfo">${myDishes[i].price}</h2>                                                                                                                ">${myDishes[i].price}</h2>
                             <h2>Deine extra Zutaten</h2>
                             <div class="ingredients" id="ingredients"></div>
                         </div>
@@ -93,7 +95,30 @@ function htmlOverlayContentFooter(i,dishesCounter){
                 <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter})">+</button> 
             </div>    
             <div class="content-finalbtn">
-                <button class="add-dishes-btn" id="addDishesBtn" onclick="dishesToShoppingcard()">${myDishes[i].price}</button>
+                <button class="add-dishes-btn" id="addDishesBtn" onclick="renderShoppingCard()">${myDishes[i].price}</button>
             </div>
+    `
+}
+
+function htmlShoppingcardOutput(id){
+    return` 
+                <div class="choosenDishes">
+
+                    <h3>Menge ${myShoppingCard[id].count}</h3>
+                    <h3>Gericht ${myShoppingCard[id].name}</h3>
+                    <h3>Basis Preis${myShoppingCard[id].basicPrice} €</h3>
+                    
+
+                </div>
+                <div class="ingridents-info">
+                    <span><p>${myShoppingCard[id].ingredits}</p></span>
+                    <span><p></p></span>
+                </div>
+                <div class="pay-informatin">
+                    <span><p>Zwischensumme ${myShoppingCard[id].dishesTotal}€</p></span>
+                    <span><p></p></span>
+                    <button>Bezahlen+Summe</button>
+                    <button>entfernen</button>
+                </div>    
     `
 }

@@ -2,11 +2,12 @@ let dishesCounter = 1;
 let extraIngredentCost = 0;
 let checksum; 
 
+
 function renderLayOut(){
     let layoutRef =document.getElementById('content');
     layoutRef.innerHTML = htmlLayOut(myResturant);
-    renderContent();
     
+    renderContent();
 }
 
 function renderContent(){
@@ -15,6 +16,8 @@ function renderContent(){
     for(i=0; i<myDishes.length;i++){
         const dishes = myDishes[i];
         contentRef.innerHTML += htmlDishesOutput(i,dishes);
+        
+
         
     }
     
@@ -61,17 +64,18 @@ function overlayFooter(i){
 
 function addExtraIngredients(index){
     let checkbox = document.getElementById('checkbox'+index);
+    let extraZutat = {name: myIngredients[index].name, price: myIngredients[index].price}
     if(checkbox.checked){
         myIngredients[index].selected = true;
         if(myIngredients[index].selected==true){
-            choosenIngredients.push(myIngredients[index].price);
+            choosenIngredients.push(extraZutat);
             //console.table(choosenIngredients);
             overlayPriceing();
         }    
     }else{
         myIngredients[index].selected=false;
         if(myIngredients[index].selected == false){
-            choosenIngredients.pop(myIngredients[index].price);
+            choosenIngredients.pop(extraZutat);
             //console.table(choosenIngredients);
             overlayPriceing();
         }
@@ -85,19 +89,72 @@ function overlayPriceing(){
     let menu = dishesPriceRef.innerText
     let Counter=0;
     let amountIng = 0;
-    let actualDishesPrice;
-    let dishesPrice
     for(s=0;s<choosenIngredients.length;s++){
-        amountIng += choosenIngredients[s]; // Summe der ausgewälten zutaten
+        amountIng += choosenIngredients[s].price; // Summe der ausgewälten zutaten
         Counter = amountIng * Number(counter.innerText);    
     }
-    dishesPrice=menu*Number(counter.innerText);
-    actualDishesPrice = dishesPrice+Counter;
-    dishesBtn.innerText = actualDishesPrice;
-    //return actualDishesPrice;
+    let dishesPrice=menu*Number(counter.innerText);
+    let actualDishesPrice = dishesPrice+Counter;
+    dishesBtn.innerText = actualDishesPrice;   
 }
 
-function dishesCounterPlus(i){
+function dishesToShoppingcard(){
+    // Alle notwendigen Daten in einem Order-Menü aufbereitet. 
+    let dishesNameRef = document.getElementById('dishes-name');
+    let dishesPriceRef = document.getElementById('overlayPriceInfo');
+    let counter = document.getElementById('counter');
+    let orderBtn = document.getElementById('addDishesBtn');
+    let order = {name: dishesNameRef.innerText, basicPrice: Number(dishesPriceRef.innerText), count: Number(counter.innerText), ingredients: choosenIngredients, dishesTotal: Number(orderBtn.innerText)};
+    myShoppingCard.push(order);
+    console.log(myShoppingCard);
+    
+    
+    //console.table(choosenIngredients);
+    //toggleOverlay(i);
+    //toggleShoppingcard();
+    //shoppingcard.innerHTML += htmlShoppingcardOutput();
+    //let shoppingcard = document.getElementById('fullShoppingcard');
+}
+
+function renderShoppingCard(){
+    let emptyShoppingcard = document.getElementById('emptyShoppingcard');
+    let fullShoppingcard = document.getElementById('fullShoppingcard');
+    dishesToShoppingcard();
+    emptyShoppingcard.classList.add('d_none');
+    fullShoppingcard.innerHTML="";
+    for(id=0;id<myShoppingCard.length;id++){
+        fullShoppingcard.innerHTML += htmlShoppingcardOutput(id);
+    }
+    toggleOverlay(i);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function dishesCounterPlus(){
     const addition = document.getElementById('counter');
     let lockBtn = document.getElementById('minusBtn');
     dishesCounter ++;
@@ -108,7 +165,7 @@ function dishesCounterPlus(i){
     overlayPriceing();
 }
 
-function dishesCounterMinus(i){
+function dishesCounterMinus(){
     const subtraction = document.getElementById('counter');
     let lockBtn = document.getElementById('minusBtn');
     let actualPrice;
@@ -121,11 +178,5 @@ function dishesCounterMinus(i){
     overlayPriceing();
 }
 
-function dishesToShoppingcard(i){
-    let orderBtn = document.getElementById('addDishesBtn');
-    let order = Number(orderBtn.innerText);
-    console.log(order);
-    toggleOverlay(i);
-}
 
 
