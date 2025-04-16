@@ -97,7 +97,7 @@ function htmlOverlayContentFooter(i,dishesCounter){
                     <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter})">+</button> 
                 </div>    
                 <div class="content-finalbtn">
-                    <button class="add-dishes-btn" id="addDishesBtn" onclick="renderShoppingCard()">${myDishes[i].price.toFixed(2)}€</button>
+                    <button class="add-dishes-btn" id="addDishesBtn" onclick="renderShoppingCard()">${myDishes[i].price.toFixed(2)}</button>
                 </div>
             </div>    
     `
@@ -115,7 +115,7 @@ function htmlShoppingcardOutput(id){
                     <div class="shoppingcard-ingredients" id="shoppingcard-ingredients${id}"></div>
                 </div>
                 <div class="pay-informatin">
-                    <span><p>Zwischensumme ${myShoppingCard[id].dishesTotal.toFixed(2)}€</p></span>
+                    <span><p>Zwischensumme ${myShoppingCard[id].dishesTotal.toFixed(2)} €</p></span>
                     <span><p></p></span>
                     <button>Bezahlen+Summe</button>
                     <button  onclick="deleteDishes(${id})">entfernen</button>

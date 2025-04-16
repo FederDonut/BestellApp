@@ -117,7 +117,7 @@ function renderShoppingCard(){
     for(id=0;id<myShoppingCard.length;id++){
         fullShoppingcard.innerHTML += htmlShoppingcardOutput(id);
         renderIngredientsToShoppingCard(id);
-        console.table(myShoppingCard);
+        //console.table(myShoppingCard);
     }
     toggleOverlay(i);
 }
@@ -136,12 +136,14 @@ function deleteDishes(id){
     let clear = document.getElementById('order-container'+id);
     let fullShoppingcard= document.getElementById('fullShoppingcard');
     let emptyCard = document.getElementById('emptyShoppingcard');
-    myShoppingCard.splice(id,1);
+    myShoppingCard.splice(clear,1);
+    console.log(id);
+    console.log(myShoppingCard.indexOf(1))
     
     clear.classList.add('d_none');
     clear.innerHTML="";
-    console.log(myShoppingCard.length);
-    console.table(myShoppingCard);
+    //console.log(myShoppingCard.length);
+    //console.table(myShoppingCard);
     if(myShoppingCard.length==0){
         fullShoppingcard.innerHTML="";
         emptyCard.classList.toggle('d_none');    
