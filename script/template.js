@@ -35,7 +35,7 @@ return`
                 <div class="dishes-info">
                     <h3 class="Titel">${dishes.name}</h3>
                     <p class="description">${dishes.description}</p>
-                    <h3>${dishes.price}</h3>
+                    <h3>${dishes.price.toFixed(2)} €</h3>
                 </div>
                 <div class="img-container">
                     <button class="Plusbtn" id="Plusbtn${i}">+</button><img class="dishes-img" src="./img/${dishes.picture}" alt="dishespicture">
@@ -55,7 +55,7 @@ function htmlOverlay(i){
                             </div>
                         <div class="separator"></div>
                         <div class="scroll-content">
-                            <h2 id="overlayPriceInfo">${myDishes[i].price}</h2>                                                                                                                ">${myDishes[i].price}</h2>
+                            <h2 id="overlayPriceInfo">${myDishes[i].price.toFixed(2)}</h2>                                                                                                                ">${myDishes[i].price}</h2>
                             <h2>Deine extra Zutaten</h2>
                             <div class="ingredients" id="ingredients"></div>
                         </div>
@@ -78,7 +78,7 @@ function htmlIngredientsOutput(itemsArray,index){
                     <p>${itemsArray.name}</p>
                 </div>
                 <div class="ingredients-price" id="ingredients-price${index}">
-                        <p>${itemsArray.price}</p>
+                        <p>${itemsArray.price.toFixed(2)}</p>
                 </div>  
             </div>
             <div class="price-with-extras" id="price-with-extras"><p></p></div>
@@ -87,38 +87,46 @@ function htmlIngredientsOutput(itemsArray,index){
 }
 function htmlOverlayContentFooter(i,dishesCounter){
     return `
-            <div class="content-counter">
-                <button id="minusBtn"class="counterbtn" onclick="dishesCounterMinus(${dishesCounter})">-</button>
-                <div class="counter" id="counter">
-                    <span><p>${dishesCounter}</p></span>
+            <div class="content-info"><h3>Anzahl</h3><h3>Summe(€)</h3></div>
+            <div class="contentOverlay-flex">
+                <div class="content-counter">
+                    <button id="minusBtn"class="counterbtn" onclick="dishesCounterMinus(${dishesCounter})">-</button>
+                    <div class="counter" id="counter">
+                        <span><p>${dishesCounter}</p></span>
+                    </div>
+                    <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter})">+</button> 
+                </div>    
+                <div class="content-finalbtn">
+                    <button class="add-dishes-btn" id="addDishesBtn" onclick="renderShoppingCard()">${myDishes[i].price.toFixed(2)}€</button>
                 </div>
-                <button class="counterbtn" onclick="dishesCounterPlus(${dishesCounter})">+</button> 
             </div>    
-            <div class="content-finalbtn">
-                <button class="add-dishes-btn" id="addDishesBtn" onclick="renderShoppingCard()">${myDishes[i].price}</button>
-            </div>
     `
 }
 
 function htmlShoppingcardOutput(id){
     return` 
-                <div class="choosenDishes">
-
+            <div class="order-container" id="order-container${id}">
+                <div class="choosenDishes" id="choosenDishes">
                     <h3>Menge ${myShoppingCard[id].count}</h3>
                     <h3>Gericht ${myShoppingCard[id].name}</h3>
-                    <h3>Basis Preis${myShoppingCard[id].basicPrice} €</h3>
-                    
-
+                    <h3>Basis Preis${myShoppingCard[id].basicPrice.toFixed(2)} €</h3>
                 </div>
                 <div class="ingridents-info">
-                    <span><p>${myShoppingCard[id].ingredits}</p></span>
-                    <span><p></p></span>
+                    <div class="shoppingcard-ingredients" id="shoppingcard-ingredients${id}"></div>
                 </div>
                 <div class="pay-informatin">
-                    <span><p>Zwischensumme ${myShoppingCard[id].dishesTotal}€</p></span>
+                    <span><p>Zwischensumme ${myShoppingCard[id].dishesTotal.toFixed(2)}€</p></span>
                     <span><p></p></span>
                     <button>Bezahlen+Summe</button>
-                    <button>entfernen</button>
-                </div>    
+                    <button  onclick="deleteDishes(${id})">entfernen</button>
+                </div>
+            </div>    
+    `
+}
+
+function htmlExtraIngredients(ingredients,d){
+    return`
+            <div><span class="extraIngredient-name">${ingredients[d].name}</span></div>
+            <div><span class="extraIngredient-price">${ingredients[d].price.toFixed(2)}€</span></div>
     `
 }

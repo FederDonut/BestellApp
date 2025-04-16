@@ -131,13 +131,24 @@
 }
 .content-footer{
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 15px;
+}
+.contentOverlay-flex{
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 20px;
 }
-.content-counter{
-    display: flex;
+.content-info{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+    h3{
+        font-size: 18px;
+    }
 }
+
 footer{
     height: 80px;
     width: 100%;

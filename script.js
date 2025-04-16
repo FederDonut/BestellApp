@@ -95,7 +95,7 @@ function overlayPriceing(){
     }
     let dishesPrice=menu*Number(counter.innerText);
     let actualDishesPrice = dishesPrice+Counter;
-    dishesBtn.innerText = actualDishesPrice;   
+    dishesBtn.innerText = actualDishesPrice.toFixed(2);   
 }
 
 function dishesToShoppingcard(){
@@ -106,14 +106,6 @@ function dishesToShoppingcard(){
     let orderBtn = document.getElementById('addDishesBtn');
     let order = {name: dishesNameRef.innerText, basicPrice: Number(dishesPriceRef.innerText), count: Number(counter.innerText), ingredients: choosenIngredients, dishesTotal: Number(orderBtn.innerText)};
     myShoppingCard.push(order);
-    console.log(myShoppingCard);
-    
-    
-    //console.table(choosenIngredients);
-    //toggleOverlay(i);
-    //toggleShoppingcard();
-    //shoppingcard.innerHTML += htmlShoppingcardOutput();
-    //let shoppingcard = document.getElementById('fullShoppingcard');
 }
 
 function renderShoppingCard(){
@@ -124,11 +116,37 @@ function renderShoppingCard(){
     fullShoppingcard.innerHTML="";
     for(id=0;id<myShoppingCard.length;id++){
         fullShoppingcard.innerHTML += htmlShoppingcardOutput(id);
+        renderIngredientsToShoppingCard(id);
+        console.table(myShoppingCard);
     }
     toggleOverlay(i);
 }
 
 
+function renderIngredientsToShoppingCard(id){
+    const ingredients = myShoppingCard[id].ingredients;
+    let ingInput = document.getElementById('shoppingcard-ingredients'+id);
+    ingInput.innerHTML="";
+    for(d=0; d<myShoppingCard[id].ingredients.length;d++){
+        ingInput.innerHTML += htmlExtraIngredients(ingredients,d);
+    }
+}
+
+function deleteDishes(id){
+    let clear = document.getElementById('order-container'+id);
+    let fullShoppingcard= document.getElementById('fullShoppingcard');
+    let emptyCard = document.getElementById('emptyShoppingcard');
+    myShoppingCard.splice(id,1);
+    
+    clear.classList.add('d_none');
+    clear.innerHTML="";
+    console.log(myShoppingCard.length);
+    console.table(myShoppingCard);
+    if(myShoppingCard.length==0){
+        fullShoppingcard.innerHTML="";
+        emptyCard.classList.toggle('d_none');    
+    }
+}   
 
 
 
