@@ -15,17 +15,12 @@ function renderContent(){
     contentRef.innerHTML="";
     for(i=0; i<myDishes.length;i++){
         const dishes = myDishes[i];
-        contentRef.innerHTML += htmlDishesOutput(i,dishes);
-        
-
-        
+        contentRef.innerHTML += htmlDishesOutput(i,dishes);  
     }
-    
 };
 
 function toggleOverlay(i){
     let overlayRef = document.getElementById('overlay');
-    
     overlayRef.classList.toggle('d_none');
     if(overlayRef.classList.contains('d_none')){
         checksum = false;
@@ -37,12 +32,10 @@ function toggleOverlay(i){
         renderIngredients();
         overlayFooter(i);
     }
-    
 };
 
 function preventBubbling(event){
     event.stopPropagation();
-   
 };
 
 function renderIngredients(){
@@ -52,14 +45,11 @@ function renderIngredients(){
         const itemsArray = myIngredients[index];
         ingredientsRef.innerHTML += htmlIngredientsOutput(itemsArray,index);
     }
-   
 };
 
 function overlayFooter(i){
     const footer = document.getElementById('content-footer');
-    footer.innerHTML += htmlOverlayContentFooter(i,dishesCounter)
-     
-      
+    footer.innerHTML += htmlOverlayContentFooter(i,dishesCounter); 
 }
 
 function addExtraIngredients(index){
@@ -80,8 +70,8 @@ function addExtraIngredients(index){
             overlayPriceing();
         }
     }
-       
 }
+
 function overlayPriceing(){
     let counter = document.getElementById('counter');
     let dishesPriceRef = document.getElementById('overlayPriceInfo');
@@ -98,7 +88,7 @@ function overlayPriceing(){
     dishesBtn.innerText = actualDishesPrice.toFixed(2);   
 }
 
-function dishesToShoppingcard(){
+function dishesToShoppingcard(index){
     // Alle notwendigen Daten in einem Order-Menü aufbereitet. 
     let dishesNameRef = document.getElementById('dishes-name');
     let dishesPriceRef = document.getElementById('overlayPriceInfo');
@@ -106,6 +96,7 @@ function dishesToShoppingcard(){
     let orderBtn = document.getElementById('addDishesBtn');
     let order = {name: dishesNameRef.innerText, basicPrice: Number(dishesPriceRef.innerText), count: Number(counter.innerText), ingredients: choosenIngredients, dishesTotal: Number(orderBtn.innerText)};
     myShoppingCard.push(order);
+    choosenIngredients =[];   
 }
 
 function renderShoppingCard(){
@@ -117,9 +108,11 @@ function renderShoppingCard(){
     for(id=0;id<myShoppingCard.length;id++){
         fullShoppingcard.innerHTML += htmlShoppingcardOutput(id);
         renderIngredientsToShoppingCard(id);
-        //console.table(myShoppingCard);
+        console.table(myShoppingCard[id].ingredients);
+        console.table(myShoppingCard[id].ingredients.length);
     }
     toggleOverlay(i);
+    
 }
 
 
@@ -137,13 +130,8 @@ function deleteDishes(id){
     let fullShoppingcard= document.getElementById('fullShoppingcard');
     let emptyCard = document.getElementById('emptyShoppingcard');
     myShoppingCard.splice(clear,1);
-    console.log(id);
-    console.log(myShoppingCard.indexOf(1))
-    
     clear.classList.add('d_none');
     clear.innerHTML="";
-    //console.log(myShoppingCard.length);
-    //console.table(myShoppingCard);
     if(myShoppingCard.length==0){
         fullShoppingcard.innerHTML="";
         emptyCard.classList.toggle('d_none');    

@@ -79,7 +79,7 @@ const myIngredients = [
     { name: "Pesto (nach Backen)", price: 1.50, selected: false },
     { name: "Veganes Hackfleisch", price: 2.20, selected: false }
   ];
-const choosenIngredients =[];
+let choosenIngredients =[];
 
 let myShoppingCard =[
 ];
