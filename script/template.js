@@ -5,7 +5,7 @@ function htmlLayOut(myResturant){
                 <div class="resturantlogo"></div>
                 <div class="resturant-info">
                 <h1>${myResturant.name}</h1>
-                <p>${myResturant.description}</p>
+                <p class="standart-font">${myResturant.description}</p>
                 </div>
                 <div class="flex-dishes">
                     <div class="content-dishes" id="content-dishes"></div>
