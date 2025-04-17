@@ -107,26 +107,37 @@ function htmlShoppingcardOutput(id){
     return` 
             <div class="order-container" id="order-container${id}">
                 <div class="choosenDishes" id="choosenDishes">
-                    <h3>Menge ${myShoppingCard[id].count}</h3>
-                    <h3>Gericht ${myShoppingCard[id].name}</h3>
-                    <h3>Basis Preis${myShoppingCard[id].basicPrice.toFixed(2)} €</h3>
+                    <div class="shoppingcard-head">
+                        <h3>${myShoppingCard[id].name}</h3>
+                        <h3>${myShoppingCard[id].basicPrice.toFixed(2)} €</h3>
+                    </div>
+                    <div class="shoppingcard-flex">
+                        <div class="shoppingcardBtn">
+                            <button class="counterbtn" id="shoppingCardMinusBtn${id}" onclick="shoppingCardMinusBtn(${id})">-</button>
+                            <h3 id="shoppingCardCount${id}">${myShoppingCard[id].count}</h3>
+                            <button class="counterbtn" id="shoppingCardPlusBtn${id}" onclick="shoppingCardPlusBtn(${id})">+</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="ingridents-info">
+                <div class="ingredients-info">
                     <div class="shoppingcard-ingredients" id="shoppingcard-ingredients${id}"></div>
                 </div>
-                <div class="pay-informatin">
-                    <span><p>Zwischensumme ${myShoppingCard[id].dishesTotal.toFixed(2)} €</p></span>
-                    <span><p></p></span>
-                    <button>Bezahlen+Summe</button>
+                <div class="separator"></div>
+                <div class="pay-information">
                     <button  onclick="deleteDishes(${id})">entfernen</button>
+                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal.toFixed(2)}</p>€</span>
                 </div>
-            </div>    
+            </div> 
     `
 }
 
 function htmlExtraIngredients(ingredients,d){
     return`
-            <div><span class="extraIngredient-name">${ingredients[d].name}</span></div>
-            <div><span class="extraIngredient-price">${ingredients[d].price.toFixed(2)}€</span></div>
+                  
+            <div class="extraIngredient-section">
+                <div><span class="extraIngredient-name">${ingredients[d].name}</span></div>
+                <div><span class="extraIngredient-price">${ingredients[d].price.toFixed(2)}€</span></div>
+            </div>
+            
     `
 }

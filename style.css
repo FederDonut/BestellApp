@@ -102,6 +102,23 @@
     position: sticky;
 
 }
+.shoppingcard-head{
+    display: flex;
+    justify-content: space-between;
+}
+.shoppingcardBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.shoppingcard-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 .fullShoppingcard{
     width: 100%;
     padding: 20px;
@@ -115,9 +132,20 @@
     background-color: rgba(228, 185, 153, 0.767);
     margin-bottom: 5px;
 }
+.ingredients-info{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.pay-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+}
 
-
-
+span{
+    display: flex;
+}
 
 .resturant-content{
     border-color: black;
@@ -136,6 +164,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.extraIngredient-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .extra-ingredients{
     display: flex;
