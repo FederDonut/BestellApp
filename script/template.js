@@ -24,7 +24,9 @@ function htmlLayOut(myResturant){
                     </div>
                     <div class="fullShoppingcard" id="fullShoppingcard"></div>
                 </div>
+                <div class="summary" id="summary"></div>
             </div>
+            
     `
 }
 
@@ -124,7 +126,7 @@ function htmlShoppingcardOutput(id){
                 </div>
                 <div class="separator"></div>
                 <div class="pay-information">
-                    <button  onclick="deleteDishes(${id})">entfernen</button>
+                    <button id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
                     <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal.toFixed(2)}</p>€</span>
                 </div>
             </div> 
@@ -136,8 +138,17 @@ function htmlExtraIngredients(ingredients,d){
                   
             <div class="extraIngredient-section">
                 <div><span class="extraIngredient-name">${ingredients[d].name}</span></div>
-                <div><span class="extraIngredient-price">${ingredients[d].price.toFixed(2)}€</span></div>
+                <div><span class="extraIngredient-price">${ingredients[d].price}€</span></div>
             </div>
             
+    `
+}
+
+function htmlSummaryOutput(id){
+    return`
+            <div class="separator"></div>
+                <div class="summary-info">
+                <p>Gesamt</p><p id="totalPrice"></p>
+            </div>
     `
 }

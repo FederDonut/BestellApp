@@ -20,11 +20,6 @@
     background-repeat: none;
     background-position: center;
 }
-
-
-.resturant-content{
-    width: 75%;
-}
 .resturantlogo{
     height: 450px;
     width: 100%;
@@ -87,19 +82,20 @@
 }
 
 .Shoppingcard{
-    width: 25%;
+    width: 500px;
     /*damit lässt sich die Position festlegen -->  height: calc(100vh - 160px);header footer*/
     background-color: rgba(255, 255, 255, 0.007);
     flex-grow: 1;
     border-color: black;   
 }   
 .shoppingcard-container{
-    top: 80px;
-    padding-top: 50px;
+    top: 10px;
+    position: sticky;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: sticky;
+    
 
 }
 .shoppingcard-head{
@@ -120,8 +116,9 @@
     padding-bottom: 5px;
 }
 .fullShoppingcard{
-    width: 100%;
+    width: 380px;
     padding: 20px;
+    
 }
 .order-container{
     width: 100%;
@@ -149,6 +146,7 @@ span{
 
 .resturant-content{
     border-color: black;
+    width: calc(100% -500px);
 }
 .resturant-info{
     height: 200px;
@@ -193,6 +191,14 @@ span{
     h3{
         font-size: 18px;
     }
+}
+.summary{
+    position: relative;
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: 200px;
+    background-color: aqua;
+
 }
 
 footer{

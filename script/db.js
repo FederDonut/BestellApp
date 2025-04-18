@@ -83,3 +83,4 @@ let choosenIngredients =[];
 
 let myShoppingCard =[
 ];
+let checkouPrice = [];
