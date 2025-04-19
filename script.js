@@ -100,8 +100,7 @@ function dishesToShoppingcard(){
 function renderShoppingCard(){
     let emptyShoppingcard = document.getElementById('emptyShoppingcard');
     let fullShoppingcard = document.getElementById('fullShoppingcard');
-    dishesToShoppingcard();
-     
+    dishesToShoppingcard();  
     emptyShoppingcard.classList.add('d_none');
     fullShoppingcard.innerHTML="";
     for(id=0;id<myShoppingCard.length;id++){
@@ -123,16 +122,12 @@ function renderSummary(id){
 }
 
 function finalPrice(id){
-    let subtotal=document.getElementById('subTotal'+id);
-    let erase = document.getElementById('deleteBtn'+id);
-    let plus = document.getElementById('shoppingCardPlusBtn'+id);
-    let minus = document.getElementById('shoppingCardMinusBtn'+id);
     let totalPrice=0;
     for($=0;$<myShoppingCard.length;$++){
         totalPrice += Number(myShoppingCard[$].dishesTotal)
     }
     console.log(totalPrice);
-    
+    return totalPrice;
 }
 
 function renderIngredientsToShoppingCard(id){
@@ -157,7 +152,8 @@ function deleteDishes(id){
         fullShoppingcard.innerHTML="";
         emptyCard.classList.toggle('d_none');    
     }
-    finalPrice(id);
+    finalPrice();
+    renderSummary();
 }   
 
 
@@ -179,7 +175,8 @@ function shoppingCardMinusBtn(id){
     let finalPriceRef=basisundZutat*Number(counter);
     subtotal.innerText=finalPriceRef.toFixed(2);
     myShoppingCard[id].dishesTotal = finalPriceRef.toFixed(2);
-    finalPrice(id);
+    finalPrice();
+    renderSummary();
 }
     
 
@@ -197,7 +194,8 @@ function shoppingCardPlusBtn(id){
     let finalPriceRef=basisundZutat*Number(counterPlus);
     subtotal.innerText=finalPriceRef.toFixed(2);
     myShoppingCard[id].dishesTotal = finalPriceRef.toFixed(2);
-    finalPrice(id);
+    finalPrice();
+    renderSummary();
     
 }
 

@@ -72,19 +72,22 @@ function htmlOverlay(i){
 function htmlIngredientsOutput(itemsArray,index){
     return`
             <div class="extra-ingredients">
-                <label class="checkbox-container">
-                    <input type="checkbox" id="checkbox${index}" onclick="addExtraIngredients(${index})" >
-                    <span class="checkmark" ></span>
-                </label>
-                <div class="category">
-                    <p>${itemsArray.name}</p>
+                <div class="checkbox">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="checkbox${index}" onclick="addExtraIngredients(${index})" >
+                        <span class="checkmark" ></span>
+                    </label>
+                    <div class="category">
+                        <p>${itemsArray.name}</p>
+                    </div>
                 </div>
+                <div class="space"></div>
                 <div class="ingredients-price" id="ingredients-price${index}">
-                        <p>${itemsArray.price.toFixed(2)}</p>
+                        <p>${itemsArray.price.toFixed(2)}€</p>
                 </div>  
             </div>
             <div class="price-with-extras" id="price-with-extras"><p></p></div>
-            
+
     `
 }
 function htmlOverlayContentFooter(i,dishesCounter){
@@ -127,7 +130,7 @@ function htmlShoppingcardOutput(id){
                 <div class="separator"></div>
                 <div class="pay-information">
                     <button id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
-                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal.toFixed(2)}</p>€</span>
+                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal}</p>€</span>
                 </div>
             </div> 
     `
@@ -138,7 +141,7 @@ function htmlExtraIngredients(ingredients,d){
                   
             <div class="extraIngredient-section">
                 <div><span class="extraIngredient-name">${ingredients[d].name}</span></div>
-                <div><span class="extraIngredient-price">${ingredients[d].price}€</span></div>
+                <div><span class="extraIngredient-price">${ingredients[d].price.toFixed(2)}€</span></div>
             </div>
             
     `
@@ -148,7 +151,7 @@ function htmlSummaryOutput(id){
     return`
             <div class="separator"></div>
                 <div class="summary-info">
-                <p>Gesamt</p><p id="totalPrice"></p>
+                <p>Gesamt</p><p id="totalPrice">${finalPrice()}</p>
             </div>
     `
 }
