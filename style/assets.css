@@ -163,3 +163,11 @@
 .add-dishes-btn:hover{
   background-color: #b0bbb9;
 }
+.deleteBtn{
+  border-radius: 10px;
+  font-family: 'Varela Round';
+}
+.deleteBtn:hover{
+  cursor: pointer;
+  background-color: #b0bbb9;
+}

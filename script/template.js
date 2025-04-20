@@ -5,7 +5,7 @@ function htmlLayOut(myResturant){
                 <div class="resturantlogo"></div>
                 <div class="resturant-info">
                 <h1>${myResturant.name}</h1>
-                <p class="standart-font">${myResturant.description}</p>
+                <p>${myResturant.description}</p>
                 </div>
                 <div class="flex-dishes">
                     <div class="content-dishes" id="content-dishes"></div>
@@ -23,8 +23,8 @@ function htmlLayOut(myResturant){
                         </div>
                     </div>
                     <div class="fullShoppingcard" id="fullShoppingcard"></div>
+                    <div class="summary" id="summary"></div>
                 </div>
-                <div class="summary" id="summary"></div>
             </div>
             
     `
@@ -129,7 +129,7 @@ function htmlShoppingcardOutput(id){
                 </div>
                 <div class="separator"></div>
                 <div class="pay-information">
-                    <button id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
+                    <button class="deleteBtn" id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
                     <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal}</p>€</span>
                 </div>
             </div> 
@@ -150,8 +150,18 @@ function htmlExtraIngredients(ingredients,d){
 function htmlSummaryOutput(id){
     return`
             <div class="separator"></div>
-                <div class="summary-info">
-                <p>Gesamt</p><p id="totalPrice">${finalPrice()}</p>
-            </div>
+            <div class="summary-content">
+                <div class="summary-info-flex">
+                    <div class="summary-info-gesamt">
+                        <p>Gesamt</p>
+                    </div>
+                    <div class="summary-info-price">
+                        <p id="totalPrice">${finalPrice()}€</p>
+                    </div>
+                </div>
+                <div class="sendOrderBtn">
+                    <button class="finalOrder">Bezahlen ${finalPrice()}€</button>
+                </div>
+            </div>        
     `
 }
