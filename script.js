@@ -109,6 +109,7 @@ function renderShoppingCard(){
 
 function renderSummary(id){
     let summary = document.getElementById('summary');
+    
     summary.innerHTML="";
     summary.innerHTML += htmlSummaryOutput(id);
     finalPrice(id);
@@ -149,8 +150,18 @@ function deleteDishes(id){
     }
     finalPrice();
     renderSummary();
+    //emptyShoppingcard();
 }   
-
+//function emptyShoppingcard(){
+//    let emptyCard = document.getElementById('emptyShoppingcard');
+//    let summary = document.getElementById('summary');
+//    let fullShoppingcard= document.getElementById('fullShoppingcard');
+//    if(myShoppingCard.lengt ==0){
+//        fullShoppingcard.innerHTML="";
+//        emptyCard.classList.toggle('d_none');
+//        //summary.classList.toggle('d_none');
+//    }
+//}
 
 function shoppingCardMinusBtn(id){ 
     let subtotal = document.getElementById('subTotal'+id); //Gesamtpreis
@@ -159,11 +170,13 @@ function shoppingCardMinusBtn(id){
     let ingredientsSum =0; 
     if(counter < 1){//kann ausgelagert werden 
        alert('mindesbestellmenge 1')
-       counter = 1;}
+       counter = 1;
+    }
     newCounter.innerText=counter; // Übertagung ins DOM
     myShoppingCard[id].count = counter;// neuer Counter im Array
     for(t=0;t<myShoppingCard[id].ingredients.length;t++){
-        ingredientsSum += Number(myShoppingCard[id].ingredients[t].price)} 
+        ingredientsSum += Number(myShoppingCard[id].ingredients[t].price)
+    } 
     let finalPriceRef = (Number(myShoppingCard[id].basicPrice) + Number(ingredientsSum.toFixed(2))) * Number(counter);
     subtotal.innerText=finalPriceRef.toFixed(2);
     myShoppingCard[id].dishesTotal = finalPriceRef.toFixed(2);

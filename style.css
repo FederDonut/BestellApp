@@ -29,6 +29,32 @@
     margin-bottom: 18px;
     border-radius: 12px;
 }
+.overlay-content-render{
+    height: 870px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    font-family: 'Varela Round';
+}
+.overlay-content-flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.overlay-header{
+    padding: 10px;
+}
+.overlay-info{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
 .content{
     min-height: 800px;
     width: 100%;
@@ -185,6 +211,7 @@ span{
     padding-bottom: 12px;
     padding-left: 4px;
 }
+
 .content-footer{
     display: flex;
     flex-direction: column;
@@ -246,6 +273,7 @@ span{
 }
 
 footer{
+    margin-top: 10px;
     height: 80px;
     width: 100%;
     background-color: rgb(236, 225, 225);

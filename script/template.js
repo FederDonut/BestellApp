@@ -52,15 +52,14 @@ function htmlOverlay(i){
             <div class="overlay-content-flex">
                 <div class="overlay-content-render" onclick="preventBubbling(event)">
                     <div class="conten-inner-position">
-                            <div class="content-header">
+                            <div class="overlay-header">
                                 <h1 id="dishes-name">${myDishes[i].name}</h1>
                             </div>
                         <div class="separator"></div>
-                        <div class="scroll-content">
-                            <h2 id="overlayPriceInfo">${myDishes[i].price.toFixed(2)}</h2>                                                                                                                ">${myDishes[i].price}</h2>
-                            <h2>Deine extra Zutaten</h2>
-                            <div class="ingredients" id="ingredients"></div>
+                        <div class="overlay-info">
+                            <h2>ab</h2><h2 id="overlayPriceInfo">${myDishes[i].price.toFixed(2)} </h2><h2>€</h2>                                                                                                            
                         </div>
+                        <div class="ingredients" id="ingredients"></div>
                         <div class="separator"></div>
                         <div class="content-footer" id="content-footer"></div>
                     </div>
