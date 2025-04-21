@@ -129,7 +129,7 @@ function htmlShoppingcardOutput(id){
                 <div class="separator"></div>
                 <div class="pay-information">
                     <button class="deleteBtn" id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
-                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal}</p>€</span>
+                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal.toFixed(2)}</p>€</span>
                 </div>
             </div> 
     `
