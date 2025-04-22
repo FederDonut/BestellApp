@@ -1,32 +1,46 @@
 
 function htmlLayOut(myResturant){
     return`
-            <div class="resturant-content">
-                <div class="resturantlogo"></div>
-                <div class="resturant-info">
-                <h1>${myResturant.name}</h1>
-                <p>${myResturant.description}</p>
-                </div>
-                <div class="flex-dishes">
-                    <div class="content-dishes" id="content-dishes"></div>
-                </div>
-            </div>
-           <div class="vertical-seperator"></div>
-            <div class="Shoppingcard"> 
-                <div class="shoppingcard-container">
-                    <h1>Warenkorb</h1>
-                    <div class="ShoppingcardStatus" id="emptyShoppingcard">
-                        <div class="emptyShoppingcard">  
-                            <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
-                            <h1>Fülle deinen Warenkorb</h1>
-                            <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
-                        </div>
+            <div class="content-space">
+                <div class="resturant-content">
+                    <div class="resturantlogo"></div>
+                    <div class="resturant-info">
+                    <h1>${myResturant.name}</h1>
+                    <p>${myResturant.description}</p>
                     </div>
-                    <div class="fullShoppingcard" id="fullShoppingcard"></div>
-                    <div class="summary" id="summary"></div>
+                    <div class="flex-dishes">
+                        <div class="content-dishes" id="content-dishes"></div>
+                    </div>
+                </div>
+                <div class="vertical-seperator"></div>
+                <div class="Shoppingcard"> 
+                    <div class="shoppingcard-container">
+                        <h1>Warenkorb</h1>
+                        <div class="ShoppingcardStatus" id="emptyShoppingcard">
+                            <div class="emptyShoppingcard">  
+                                <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
+                                <h1>Fülle deinen Warenkorb</h1>
+                                <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
+                            </div>
+                        </div>
+                        <div class="fullShoppingcard" id="fullShoppingcard"></div>
+                        <div class="summary" id="summary"></div>
+                    </div>
                 </div>
             </div>
+            <div class="showShoppingCard" id="showShoppingCard"></div>
+               
             
+            
+    `
+}
+function htmlResponsivBtn(){
+    return `
+                <button class="hiddenBtn" id="hiddenBtn">
+                    <div class="cardImg"></div>
+                    <div class="BtnPrice"></div>
+                    <div class="BtnTitel"><p>Warenkorb ansehen</p></div>
+                </button> 
     `
 }
 
@@ -129,7 +143,7 @@ function htmlShoppingcardOutput(id){
                 <div class="separator"></div>
                 <div class="pay-information">
                     <button class="deleteBtn" id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
-                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal.toFixed(2)}</p>€</span>
+                    <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal}</p>€</span>
                 </div>
             </div> 
     `

@@ -3,6 +3,11 @@
     margin: 0;
     scroll-behavior: smooth;
 }
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .header{
     height: 80px;
     width: 100%;
@@ -29,6 +34,7 @@
     margin-bottom: 18px;
     border-radius: 12px;
 }
+
 .overlay-content-render{
     height: 870px;
     width: 500px;
@@ -56,13 +62,18 @@
     padding-left: 10px;
 }
 .content{
-    min-height: 800px;
+    min-height: 100%;
     width: 100%;
+    flex-grow: 1;
     padding-left: 18px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-bottom: 2px;
     font-family: 'Varela Round';
+}
+.content-space{
+    display: flex;
+    flex-direction: row;
 }
 .content-dishes{
     min-height: 800px;
@@ -273,8 +284,77 @@ span{
 }
 
 footer{
+   
+    bottom: 0;
     margin-top: 10px;
     height: 80px;
     width: 100%;
     background-color: rgb(236, 225, 225);
+}
+
+@media(max-width: 1380px){
+    .Plusbtn{
+        display: none;
+    }
+    .dishes-info{
+        gap: 15px;
+    }
+    .img-container{
+        width: 300px;
+    }
+}
+@media(max-width: 1028px){
+    .Shoppingcard{
+        display: none;
+    }
+}
+@media(max-width: 680px){
+    .content{
+        padding: 0;
+    }
+    .resturant-content{
+        h1{
+            text-align: center;
+        }
+        width: 100%;
+    }
+    .dishes-img{
+        display: none;
+    }
+}
+@media(max-width: 490px){
+    .content{
+        padding: 0;
+    }
+    .content-dishes{
+        gap: 8px;
+        width: 100vw;
+    }
+    .dishes-info{
+        gap: 8px;
+    }
+    .overlay-content-render{
+        
+        width: 100%;
+    }
+
+
+
+    .img-container{
+        display: none;
+    }
+    .space{
+        width: auto;
+    }
+}
+@media(max-width: 360px){
+    .resturant-info{
+        margin-bottom: 10px;
+        p{
+            font-size: smaller;
+        }
+    }
+    .description{
+        font-size: small;
+    }
 }

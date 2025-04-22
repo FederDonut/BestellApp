@@ -9,19 +9,19 @@ let myDishes = [
     {
         "name": "Poke Bowl",
         "price": 4.00,
-        "description": "",
+        "description": "Eine erfrischende Schüssel mit mariniertem Fisch, Reis und verschiedenen Toppings.",
         "picture": "tuna-poke-3963936_1280.jpg"
     },
     {
         "name": "Tandori Chicken",
         "price": 14.50,
-        "description": ".",
+        "description": "Saftiges Hähnchen, mariniert in Joghurt und aromatischen Gewürzen, traditionell im Tandoor gegrillt.",
         "picture":"bbq-4683963_1280.jpg"
     },
     {
         "name": "Ramen",
         "price": 12.50,
-        "description": "",
+        "description": "Eine reichhaltige japanische Nudelsuppe mit Brühe, Fleisch oder Fisch, Gemüse und Ei.",
         "picture":"food-715542_1280.jpg"
     },
     {
@@ -33,7 +33,7 @@ let myDishes = [
     {
         "name": "Kürbissuppe",
         "price": 10.50,
-        "description": "",
+        "description": "Eine cremige und wärmende Suppe aus frischem Kürbis, verfeinert mit Gewürzen.",
         "picture":"pumpkin-soup-3645375_1280.jpg"
     },
     {
