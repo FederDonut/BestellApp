@@ -4,7 +4,6 @@ let extraIngredentCost = 0;
 function renderLayOut(){
     let layoutRef =document.getElementById('content');
     layoutRef.innerHTML = htmlLayOut(myResturant);
-    
     renderContent();
     responsivBtn();
 }
@@ -83,8 +82,7 @@ function overlayPriceing(){
     dishesBtn.innerText = actualDishesPrice.toFixed(2);   
 }
 
-function dishesToShoppingcard(){
-    // Alle notwendigen Daten in einem Order-Menü aufbereitet. 
+function dishesToShoppingcard(){ 
     let dishesNameRef = document.getElementById('dishes-name');
     let dishesPriceRef = document.getElementById('overlayPriceInfo');
     let counter = document.getElementById('counter');
@@ -106,7 +104,6 @@ function renderShoppingCard(){
         fullShoppingcard.innerHTML += htmlShoppingcardOutput(id);
         renderIngredientsToShoppingCard(id); 
         renderSummary(id);
-           
     }
     toggleOverlay(i);
 }
@@ -137,14 +134,9 @@ function renderIngredientsToShoppingCard(id){
 }
 
 function deleteDishes(idToClear){
-    let clear = document.getElementById('order-container'+idToClear); // Menuauswahl
+    let clear = document.getElementById('order-container'+idToClear); 
     let fullShoppingcard= document.getElementById('fullShoppingcard');
-    let emptyCard = document.getElementById('emptyShoppingcard');
     myShoppingCard.splice(idToClear,1);
-    //console.log('gelöscht');
-    //console.table(removed);
-    //console.log('Warenkorb')
-    //console.table(myShoppingCard)
     clear.classList.add('d_none');
     clear.innerHTML=""; 
     fullShoppingcard.innerHTML="";  
@@ -158,12 +150,13 @@ function deleteDishes(idToClear){
     finalPrice();
     renderSummary();
     
-}   
+}
+
 function emptyShoppingcard(){
     let emptyCard = document.getElementById('emptyShoppingcard');
     let summary = document.getElementById('summary');
-        emptyCard.classList.toggle('d_none');  
-        summary.classList.add('d_none');
+    emptyCard.classList.toggle('d_none');  
+    summary.classList.add('d_none');
 }
 
 function shoppingCardMinusBtn(id){ 
@@ -189,12 +182,12 @@ function shoppingCardMinusBtn(id){
     
 
 function shoppingCardPlusBtn(id){
-    let subtotal = document.getElementById('subTotal'+id); // Gesamtpreis
-    let newCounter = document.getElementById('shoppingCardCount'+id); // Zähler
-    let counterPlus = Number(newCounter.innerText)+1; // Zähler wird um 1 erhöht
+    let subtotal = document.getElementById('subTotal'+id);
+    let newCounter = document.getElementById('shoppingCardCount'+id);
+    let counterPlus = Number(newCounter.innerText)+1; 
     let ingredientsSum =0; 
-    newCounter.innerText = counterPlus // wird ind Dom übertragen 
-    myShoppingCard[id].count = counterPlus // neuer Zähler wird im Array abgespeichert
+    newCounter.innerText = counterPlus  
+    myShoppingCard[id].count = counterPlus 
     for(t=0;t<myShoppingCard[id].ingredients.length;t++){
         ingredientsSum += Number(myShoppingCard[id].ingredients[t].price)
     } 
@@ -239,7 +232,6 @@ function responsivBtn(){
     let checksum = 1256;
     hiddenBtn.innerHTML=""
     if(window.innerWidth<=checksum){
-        
         hiddenBtn.innerHTML= htmlResponsivBtn();
     }else{
         hiddenBtn.innerHTML="";
@@ -249,22 +241,38 @@ function responsivBtn(){
 window.addEventListener('resize',responsivBtn);
 
 function toggleResponsivShoppingCard(){
-    
     let contentRef = document.getElementById('resturant-content');
     let shoppingcardRef = document.getElementById('Shoppingcard');
     let vertSepRef= document.getElementById('seperator');
     let checksum = 1256;
     if(window.innerWidth<=checksum ){
-        console.log('true');
         contentRef.classList.toggle('d_none');
         vertSepRef.classList.toggle('d_none');
         shoppingcardRef.classList.toggle('show-shoppingcard');
-        
     }else{
-        console.log('dieser log sollte nie aufkommen')
         shoppingcardRef.classList.remove('show-shoppingcard');
         contentRef.classList.remove('d_none');
         vertSepRef.classList.remove('d_none');
     }
 }
 
+function testOrder(){
+    let trash =document.getElementById('fullShoppingcard');
+    console.table(myShoppingCard);
+    myShoppingCard=[];
+    trash.innerHTML="";
+    console.table(myShoppingCard.length);
+    if(myShoppingCard.length==0){
+        emptyShoppingcard();
+        renderTestOrder();
+    }
+    //toggleOverlay();
+    
+   
+}
+
+function renderTestOrder(){
+    let overlayRef = document.getElementById('overlay');
+    overlayRef.classList.toggle('d_none');
+    overlayRef.innerHTML = htmlTestOrderOutput();
+}

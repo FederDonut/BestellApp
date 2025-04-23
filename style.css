@@ -21,9 +21,12 @@ body{
     height: 70px;
     width: 200px;
     background-image: url(./icons/Bestell\ App-\ Logo.svg);
-    background-size: contain;
+    background-size: cover;
     background-repeat: none;
     background-position: center;
+}
+.logo-flex{
+    width: 100%;
 }
 .resturantlogo{
     height: 450px;
@@ -34,7 +37,14 @@ body{
     margin-bottom: 18px;
     border-radius: 12px;
 }
-
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgb(84, 94, 97,0.375);    
+}
 .overlay-content-render{
     height: 870px;
     width: 500px;
@@ -72,7 +82,6 @@ body{
     min-height: 100%;
     width: 100%;
     flex-grow: 1;
-    padding-left: 18px;
     display: flex;
     flex-direction: column;
     padding-bottom: 2px;
@@ -163,7 +172,12 @@ body{
 .fullShoppingcard{
     width: 380px;
     padding: 20px;
+    max-height: 100vh;
+    overflow-y: scroll;
     
+}
+.fullShoppingcard::-webkit-scrollbar{
+    display: none;
 }
 .order-container{
     width: 100%;
@@ -290,6 +304,26 @@ span{
     box-shadow: 0 0 3px 1px rgba(186, 28, 0, 0.5);
 }
 
+.testOrderflex{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.testOrderText{
+    height: 500px;
+    width: 500px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h3{
+        font-family: 'Varela Round';
+    }
+}
+
 footer{
    
     bottom: 0;
@@ -312,7 +346,7 @@ footer{
         visibility: hidden;
         opacity: 0;
         position: absolute;
-        right: -100%;
+        width: 100%;
     }
     .Shoppingcard.show-shoppingcard {
         visibility: visible;
@@ -320,7 +354,10 @@ footer{
         position: relative;
         right: 0;
         display: block;
-      }
+    }
+    .vertical-seperator{
+        display: none;
+    }
 }
 @media(max-width: 680px){
     .content{
@@ -337,6 +374,9 @@ footer{
     }
 }
 @media(max-width: 490px){
+    body{
+        overflow-x: hidden;
+    }
     .content{
         padding: 0;
     }
@@ -366,7 +406,7 @@ footer{
         width: auto;
     }
 }
-@media(max-width: 382px){
+@media(max-width: 372px){
     .Shoppingcard{
         width: 100%;
     }
@@ -374,7 +414,7 @@ footer{
         width: 100%;
     }
 }
-@media(max-width: 360px){
+@media(max-width: 355px){
     .resturant-info{
         margin-bottom: 10px;
         p{
@@ -383,5 +423,10 @@ footer{
     }
     .description{
         font-size: small;
+    }
+    .emptyShoppingcard{
+        h1{
+            font-size: x-large;
+        }
     }
 }
