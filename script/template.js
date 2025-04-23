@@ -54,7 +54,7 @@ return`
                     <h3>${dishes.price.toFixed(2)} €</h3>
                 </div>
                 <div class="img-container">
-                    <button class="Plusbtn" id="Plusbtn${i}">+</button><img class="dishes-img" src="./img/${dishes.picture}" alt="dishespicture">
+                    <img class="dishes-img" src="./img/${dishes.picture}" alt="dishespicture">
                 </div>
             </div>
         
@@ -65,9 +65,10 @@ function htmlOverlay(i){
     return` 
             <div class="overlay-content-flex">
                 <div class="overlay-content-render" onclick="preventBubbling(event)">
-                    <div class="conten-inner-position">
+                    <div class="content-inner-position">
                             <div class="overlay-header">
                                 <h1 id="dishes-name">${myDishes[i].name}</h1>
+                                <button class="counterbtn" id="exitBtn" onclick="exitBtn()">X</button>
                             </div>
                         <div class="separator"></div>
                         <div class="overlay-info">

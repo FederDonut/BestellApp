@@ -24,7 +24,7 @@ function toggleOverlay(i){
         overlayRef.innerHTML="";
         dishesCounter =1;
     }else{
-        overlayRef.innerHTML += htmlOverlay(i);
+        overlayRef.innerHTML = htmlOverlay(i);
         renderIngredients();
         overlayFooter(i);
     }
@@ -226,6 +226,10 @@ function dishesCounterMinus(){
     overlayPriceing();
 }
 
+function exitBtn(){
+    let overlayRef = document.getElementById('overlay');
+    overlayRef.classList.add('d_none');
+}
 
 
 

@@ -44,7 +44,7 @@ body{
 }
 .overlay-content-flex{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,6 +52,8 @@ body{
 }
 .overlay-header{
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .overlay-info{
     display: flex;
@@ -333,9 +335,17 @@ footer{
     .dishes-info{
         gap: 8px;
     }
+    .content-inner-position{
+        margin-top: 40px;
+    }
     .overlay-content-render{
-        
+        height: 696px;
         width: 100%;
+    }
+    .ingredients{
+        height: 400px;
+        overflow-y: scroll;
+
     }
 
 
