@@ -2,7 +2,7 @@
 function htmlLayOut(myResturant){
     return`
             <div class="content-space">
-                <div class="resturant-content">
+                <div class="resturant-content" id="resturant-content">
                     <div class="resturantlogo"></div>
                     <div class="resturant-info">
                     <h1>${myResturant.name}</h1>
@@ -12,8 +12,8 @@ function htmlLayOut(myResturant){
                         <div class="content-dishes" id="content-dishes"></div>
                     </div>
                 </div>
-                <div class="vertical-seperator"></div>
-                <div class="Shoppingcard"> 
+                <div class="vertical-seperator" id="seperator"></div>
+                <div class="Shoppingcard" id="Shoppingcard"> 
                     <div class="shoppingcard-container">
                         <h1>Warenkorb</h1>
                         <div class="ShoppingcardStatus" id="emptyShoppingcard">
@@ -36,10 +36,8 @@ function htmlLayOut(myResturant){
 }
 function htmlResponsivBtn(){
     return `
-                <button class="hiddenBtn" id="hiddenBtn">
-                    <div class="cardImg"></div>
-                    <div class="BtnPrice"></div>
-                    <div class="BtnTitel"><p>Warenkorb ansehen</p></div>
+                <button class="hiddenBtn" id="hiddenBtn" onclick="toggleResponsivShoppingCard()">
+                    <div class="BtnTitel"><p>Warenkorb</p></div>
                 </button> 
     `
 }
@@ -161,7 +159,7 @@ function htmlExtraIngredients(ingredients,d){
     `
 }
 
-function htmlSummaryOutput(id){
+function htmlSummaryOutput(){
     return`
             <div class="separator"></div>
             <div class="summary-content">
@@ -177,5 +175,69 @@ function htmlSummaryOutput(id){
                     <button class="finalOrder">Bezahlen ${finalPrice()}€</button>
                 </div>
             </div>        
+    `
+}
+
+function htmlEmptyShoppingCardResponsiv(){
+    return`
+            <div class="overlay-Shoppingcard">
+                <div class="shoppingcard-container">
+                    <h1>Warenkorb</h1>
+                    <button class="counterbtn" onclick="exitBtn">X</button>
+                    <div class="ShoppingcardStatus" id="emptyShoppingcardResponsiv">
+                        <div class="emptyShoppingcard">  
+                            <img class="icons" src="/icons/shopping-cart.png" alt="shoppingcard">
+                            <h1>Fülle deinen Warenkorb</h1>
+                            <span class="centerPosition"><p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p></span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    `
+}
+
+function htmlFullShoppingCardResponsiv(id){
+    return`
+            <div class="overlay-Shoppingcard">
+                <div class"shoppingcard-container">
+                    <h1>Warenkorb</h1>
+                    <button class="counterbtn" onclick="exitBtn">X</button>
+                    <div class="fullShoppingcard" id="fullShoppingcard">
+                        <div class="order-container" id="order-container${id}">
+                            <div class="choosenDishes" id="choosenDishes">
+                                <div class="shoppingcard-head">
+                                    <h3>${myShoppingCard[id].name}</h3>
+                                    <h3>${myShoppingCard[id].basicPrice.toFixed(2)} €</h3>
+                                </div>
+                                <div class="shoppingcard-flex">
+                                    <div class="shoppingcardBtn">
+                                        <button class="counterbtn" id="shoppingCardMinusBtn${id}" onclick="shoppingCardMinusBtn(${id})">-</button>
+                                        <h3 id="shoppingCardCount${id}">${myShoppingCard[id].count}</h3>
+                                        <button class="counterbtn" id="shoppingCardPlusBtn${id}" onclick="shoppingCardPlusBtn(${id})">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ingredients-info">
+                                <div class="shoppingcard-ingredients" id="shoppingcard-ingredients${id}"></div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="pay-information">
+                                <button class="deleteBtn" id="deleteBtn${id}" onclick="deleteDishes(${id})">entfernen</button>
+                                <span><p id="subTotal${id}">${myShoppingCard[id].dishesTotal}</p>€</span>
+                            </div>
+                        </div> 
+                    </div>
+
+                </div>
+                
+                
+                
+                
+                
+                <div class="summary" id="summaryResponsiv"></div>
+            
+            
+            </div>
     `
 }

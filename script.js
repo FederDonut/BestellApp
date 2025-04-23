@@ -6,6 +6,7 @@ function renderLayOut(){
     layoutRef.innerHTML = htmlLayOut(myResturant);
     
     renderContent();
+    responsivBtn();
 }
 
 function renderContent(){
@@ -104,7 +105,8 @@ function renderShoppingCard(){
     for(id=0;id<myShoppingCard.length;id++){
         fullShoppingcard.innerHTML += htmlShoppingcardOutput(id);
         renderIngredientsToShoppingCard(id); 
-        renderSummary(id);     
+        renderSummary(id);
+           
     }
     toggleOverlay(i);
 }
@@ -114,6 +116,7 @@ function renderSummary(id){
     summary.innerHTML="";
     summary.innerHTML += htmlSummaryOutput(id);
     finalPrice(id);
+    responsivBtn();
 }
 
 function finalPrice(id){
@@ -231,11 +234,37 @@ function exitBtn(){
     overlayRef.classList.add('d_none');
 }
 
+function responsivBtn(){
+    let hiddenBtn = document.getElementById('showShoppingCard');
+    let checksum = 1256;
+    hiddenBtn.innerHTML=""
+    if(window.innerWidth<=checksum){
+        
+        hiddenBtn.innerHTML= htmlResponsivBtn();
+    }else{
+        hiddenBtn.innerHTML="";
+    }
+}
 
+window.addEventListener('resize',responsivBtn);
 
-
-
-
-
-
+function toggleResponsivShoppingCard(){
+    
+    let contentRef = document.getElementById('resturant-content');
+    let shoppingcardRef = document.getElementById('Shoppingcard');
+    let vertSepRef= document.getElementById('seperator');
+    let checksum = 1256;
+    if(window.innerWidth<=checksum ){
+        console.log('true');
+        contentRef.classList.toggle('d_none');
+        vertSepRef.classList.toggle('d_none');
+        shoppingcardRef.classList.toggle('show-shoppingcard');
+        
+    }else{
+        console.log('dieser log sollte nie aufkommen')
+        shoppingcardRef.classList.remove('show-shoppingcard');
+        contentRef.classList.remove('d_none');
+        vertSepRef.classList.remove('d_none');
+    }
+}
 
