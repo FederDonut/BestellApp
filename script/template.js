@@ -31,9 +31,6 @@ function htmlLayOut(myResturant){
                 </div>
             </div>
             <div class="showShoppingCard" id="showShoppingCard"></div>
-               
-            
-            
     `
 }
 function htmlResponsivBtn(){

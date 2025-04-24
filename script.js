@@ -1,6 +1,9 @@
 let dishesCounter = 1;
 let extraIngredentCost = 0;
 
+function info(){
+    alert('Button Function ist nicht in Version 1.0 enthalten. Diese kommt früstens in Version 1.1')
+}
 function renderLayOut(){
     let layoutRef =document.getElementById('content');
     layoutRef.innerHTML = htmlLayOut(myResturant);
@@ -149,7 +152,6 @@ function deleteDishes(idToClear){
     }
     finalPrice();
     renderSummary();
-    
 }
 
 function emptyShoppingcard(){
@@ -160,16 +162,16 @@ function emptyShoppingcard(){
 }
 
 function shoppingCardMinusBtn(id){ 
-    let subtotal = document.getElementById('subTotal'+id); //Gesamtpreis
-    let newCounter = document.getElementById('shoppingCardCount'+id);//Zähler
-    let counter = Number(newCounter.innerText)-1;//Zähler um 1 verringern
+    let subtotal = document.getElementById('subTotal'+id);
+    let newCounter = document.getElementById('shoppingCardCount'+id);
+    let counter = Number(newCounter.innerText)-1;
     let ingredientsSum =0; 
-    if(counter < 1){//kann ausgelagert werden 
+    if(counter < 1){ 
        alert('mindesbestellmenge 1')
        counter = 1;
     }
-    newCounter.innerText=counter; // Übertagung ins DOM
-    myShoppingCard[id].count = counter;// neuer Counter im Array
+    newCounter.innerText=counter;
+    myShoppingCard[id].count = counter;
     for(t=0;t<myShoppingCard[id].ingredients.length;t++){
         ingredientsSum += Number(myShoppingCard[id].ingredients[t].price)
     } 
@@ -180,7 +182,6 @@ function shoppingCardMinusBtn(id){
     renderSummary();
 }
     
-
 function shoppingCardPlusBtn(id){
     let subtotal = document.getElementById('subTotal'+id);
     let newCounter = document.getElementById('shoppingCardCount'+id);
@@ -198,7 +199,6 @@ function shoppingCardPlusBtn(id){
     renderSummary();
     
 }
-
 
 function dishesCounterPlus(){
     const addition = document.getElementById('counter');
@@ -229,12 +229,17 @@ function exitBtn(){
 
 function responsivBtn(){
     let hiddenBtn = document.getElementById('showShoppingCard');
+    let footer = document.getElementById('footer');
     let checksum = 1256;
     hiddenBtn.innerHTML=""
     if(window.innerWidth<=checksum){
         hiddenBtn.innerHTML= htmlResponsivBtn();
+        footer.classList.add('new-footer');
+        hiddenBtn.classList.add('showShoppingCard');
     }else{
         hiddenBtn.innerHTML="";
+        hiddenBtn.classList.remove('showShoppingCard');
+        footer.classList.remove('new-footer');
     }
 }
 
@@ -258,17 +263,12 @@ function toggleResponsivShoppingCard(){
 
 function testOrder(){
     let trash =document.getElementById('fullShoppingcard');
-    console.table(myShoppingCard);
     myShoppingCard=[];
     trash.innerHTML="";
-    console.table(myShoppingCard.length);
     if(myShoppingCard.length==0){
         emptyShoppingcard();
         renderTestOrder();
     }
-    //toggleOverlay();
-    
-   
 }
 
 function renderTestOrder(){
