@@ -97,6 +97,8 @@ function dishesToShoppingcard(){
 }
 
 function renderShoppingCard(){
+    let checksum = 450;
+    let shoppingcard = document.getElementById('showShoppingCard');
     let emptyShoppingcard = document.getElementById('emptyShoppingcard');
     let fullShoppingcard = document.getElementById('fullShoppingcard');
     let summary = document.getElementById('summary');
@@ -110,6 +112,9 @@ function renderShoppingCard(){
         renderSummary(id);
     }
     toggleOverlay(i);
+    if(window.innerWidth<=checksum){
+        shoppingcard.classList.remove('d_none');
+    }
 }
 
 function renderSummary(id){
@@ -224,8 +229,13 @@ function dishesCounterMinus(){
 }
 
 function exitBtn(){
+    let checksum = 450;
+    let shoppingcard = document.getElementById('showShoppingCard');
     let overlayRef = document.getElementById('overlay');
     overlayRef.classList.add('d_none');
+    if(window.innerWidth<= checksum){
+        shoppingcard.classList.remove('d_none');
+    }
 }
 
 function responsivBtn(){
@@ -283,9 +293,7 @@ function removeShoppinCardOnIngredients(){
     let shoppingcard = document.getElementById('showShoppingCard');
     let ingredients = document.getElementById('overlay-content-render');
     if(window.innerWidth<= checksum && ingredients){
-        console.log(true);
         shoppingcard.classList.add('d_none');
-    }else{
-        console.log(false);
     }
+    
 }
