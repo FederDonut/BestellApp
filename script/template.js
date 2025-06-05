@@ -61,7 +61,7 @@ return`
 function htmlOverlay(i){
     return` 
             <div class="overlay-content-flex">
-                <div class="overlay-content-render" onclick="preventBubbling(event)">
+                <div class="overlay-content-render" id="overlay-content-render" onclick="preventBubbling(event)">
                     <div class="content-inner-position">
                             <div class="overlay-header">
                                 <h1 id="dishes-name">${myDishes[i].name}</h1>

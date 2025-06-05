@@ -30,6 +30,7 @@ function toggleOverlay(i){
         overlayRef.innerHTML = htmlOverlay(i);
         renderIngredients();
         overlayFooter(i);
+        removeShoppinCardOnIngredients();
     }
 };
 
@@ -275,4 +276,16 @@ function renderTestOrder(){
     let overlayRef = document.getElementById('overlay');
     overlayRef.classList.toggle('d_none');
     overlayRef.innerHTML = htmlTestOrderOutput();
+}
+
+function removeShoppinCardOnIngredients(){
+    let checksum = 450;
+    let shoppingcard = document.getElementById('showShoppingCard');
+    let ingredients = document.getElementById('overlay-content-render');
+    if(window.innerWidth<= checksum && ingredients){
+        console.log(true);
+        shoppingcard.classList.add('d_none');
+    }else{
+        console.log(false);
+    }
 }
